@@ -24,14 +24,21 @@ ok.push(); // envoie l'information au code pkp
 
   // couleur par defaut 
 
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("style_change").innerHTML =
-    this.responseText;
-  }
-  xhttp.open("GET", "style_all.php");
-  xhttp.send();
 
+
+
+
+  const myTimeout = setTimeout(myStopFunction, 300);
+
+  function myStopFunction() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      document.getElementById("style_change").innerHTML =
+      this.responseText;
+    }
+    xhttp.open("GET", "style_all.php");
+    xhttp.send();
+  }
 
  }
 

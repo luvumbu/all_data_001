@@ -211,6 +211,7 @@ function onscroll_function(_this){
 // L'utilisateur a la possibilite de changer la couleur de la page a tout moment et enregistrer 
 // a l'aide de session les modification
 function style_change(_this){
+ 
     document.getElementById("style6").className="display_none" ; 
    var ok = new Information("style_change_6.php"); // création de la classe 
    ok.add("style_change", _this.title); // ajout de l'information pour lenvoi 
@@ -219,20 +220,35 @@ function style_change(_this){
    console.log(ok.info()); // demande l'information dans le tableau
    ok.push(); // envoie l'information au code pkp 
      // couleur par defaut 
-     const xhttp = new XMLHttpRequest();
-     xhttp.onload = function() {
-       document.getElementById("style_change").innerHTML =
-       this.responseText;
-     }
-     xhttp.open("GET", "style_all.php");
-     xhttp.send();
-   
+
+
+
+              const myTimeout = setTimeout(myStopFunction, 300);
+
+          function myStopFunction() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+              document.getElementById("style_change").innerHTML =
+              this.responseText;
+            }
+            xhttp.open("GET", "style_all.php");
+            xhttp.send();
+
+          }
+
+
+
+
+
+
      }
 // // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx
 
  
 // Couleurs par defaut donne a l'utilsateur 6 couleur possible avec les petit carre sur le code
 function style_change_plus(_this){  
+ 
+
     document.getElementById("style6").className="style6" ;    
    
       }
